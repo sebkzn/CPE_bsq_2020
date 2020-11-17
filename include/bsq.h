@@ -12,5 +12,4 @@
 
 int find_the_biggest_square(char * const *board, int width, int height);
 
-
 #endif /* !BSQ_H_ */
