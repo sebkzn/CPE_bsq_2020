@@ -21,7 +21,7 @@ OBJS	  = $(SRCS:.c=.o)
 
 T_OBJS	  = $(T_SRCS:.c=.o)
 
-CFLAGS	  += -O2 -I . -Wall -Wextra
+CFLAGS	  += -I . -Wall -Wextra
 
 LDFLAGS	  += -L . -lmy
 
