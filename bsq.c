@@ -27,7 +27,7 @@ static int min(int a, int b, int c)
     return (m);
 }
 
-short **copy_board(char * const *board, int width, int height)
+static short **copy_board(char * const *board, int width, int height)
 {
     short **cpy_board = NULL;
 
