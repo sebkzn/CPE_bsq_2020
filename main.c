@@ -9,15 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "my.h"
-
-static void free_2d_array(void ***array)
-{
-    int i = 0;
-
-    for (i = 0; (*array)[i]; i++)
-        free((*array)[i]);
-    free(*array);
-}
+#include "bsq.h"
 
 static int check_board(char * const *board)
 {
@@ -37,7 +29,7 @@ static int check_board(char * const *board)
     }
     if (size == 0 || size != i - 1)
         return (0);
-    return (1);
+    return (find_the_biggest_square(board + 1, length, size));
 }
 
 static char *fs_open_file(char const *filepath)
@@ -75,10 +67,9 @@ int main(int argc, char * const *argv)
     free(buffer);
     if (board == NULL || !check_board(board)) {
         if (board != NULL)
-            free_2d_array((void ***)&board);
+            free_double_array((void ***)&board);
         return (84);
     }
-    my_show_word_array(board);
-    free_2d_array((void ***)&board);
+    free_double_array((void ***)&board);
     return (0);
 }

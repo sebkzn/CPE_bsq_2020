@@ -51,6 +51,7 @@ int my_str_isupper(char const *str);
 char *my_strlowcase(char *str);
 char *my_strupcase(char *str);
 int my_sort_word_array(char **tab);
+void free_double_array(void ***array);
 int my_printf(const char *format, ...);
 
 #endif /* !MY_H_ */
