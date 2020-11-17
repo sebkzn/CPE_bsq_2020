@@ -19,7 +19,7 @@ OBJS      = $(SRCS:.c=.o)
 
 T_OBJS    = $(T_SRCS:.c=.o)
 
-CFLAGS 	  += -I ./include -Wall -Wextra
+CFLAGS 	  += -O2 -I ./include -Wall -Wextra
 
 LDFLAGS   += -L ./lib/my -lmy
 T_LDFLAGS += -lcriterion $(LDFLAGS)

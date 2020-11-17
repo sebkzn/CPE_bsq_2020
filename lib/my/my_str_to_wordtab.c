@@ -12,10 +12,8 @@ static int count_words(char const *str, char sep)
 {
     int res = 0;
 
-    if (*str == sep)
-        str += 1;
     for (int i = 0; str[i]; i++)
-        if ((str[i] == sep && str[i + 1] != sep) ||
+        if ((str[i] != sep && str[i + 1] == sep) ||
             (str[i] != sep && str[i + 1] == 0))
             res++;
     return (res);
@@ -42,7 +40,7 @@ char **my_str_to_wordtab(char const *str, char sep)
     int j = 0;
     int mark = 0;
 
-    result = malloc(sizeof(char *) * (nb_words + 1));
+    result = (nb_words > 0) ? malloc(sizeof(char *) * (nb_words + 1)) : NULL;
     if (result == NULL)
         return (NULL);
     for (int i = 0; str[i]; i++) {
