@@ -27,13 +27,13 @@ static int min(int a, int b, int c)
     return (m);
 }
 
-static short **copy_board(char * const *board, int width, int height)
+static char **copy_board(char * const *board, int width, int height)
 {
-    short **cpy_board = NULL;
+    char **cpy_board = NULL;
 
-    cpy_board = malloc(sizeof(short *) * (height + 1));
+    cpy_board = malloc(sizeof(char *) * (height + 1));
     for (int i = 0; i < height; i++)
-        cpy_board[i] = malloc(sizeof(short) * (width + 1));
+        cpy_board[i] = malloc(sizeof(char) * (width + 1));
     for (int i = 0; i < height; i++)
         cpy_board[i][0] = (board[i][0] == 'o') ? 0 : 1;
     for (int j = 0; j < width; j++)
@@ -54,7 +54,7 @@ int find_the_biggest_square(char * const *board, int width, int height)
     int corner = 0;
     int max_i = 0;
     int max_j = 0;
-    short **cpy_board = copy_board(board, width, height);
+    char **cpy_board = copy_board(board, width, height);
 
     if (!cpy_board)
         return (0);
