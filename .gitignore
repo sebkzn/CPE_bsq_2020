@@ -1,6 +1,7 @@
 ###folders##
 bonus/
 bin/
+tests/
 
 ###files##
 bsq
