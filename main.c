@@ -8,7 +8,6 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "my.h"
 #include "bsq.h"
 
 static int check_board(char * const *board)
