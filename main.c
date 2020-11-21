@@ -45,8 +45,10 @@ static char *fs_open_file(char const *filepath)
     buffer = malloc(sizeof(char) * info.st_size + 1);
     if (!buffer)
         return (NULL);
-    if (read(fd, buffer, info.st_size) != info.st_size)
+    if (read(fd, buffer, info.st_size) != info.st_size) {
+        free(buffer);
         return (NULL);
+    }
     buffer[info.st_size] = '\0';
     close(fd);
     return (buffer);
