@@ -7,8 +7,8 @@
   - The board is represented by a file passed as the program’s argument
     - each obstacles are represented by "o", and empty space by "."
     - all of the lines are of the same length
-    - file's first line contains the number of lines on the board (and only that),
-  - The program print the board with some "." replaced by "x" to represent the solution found.
+    - file's first line contains the number of lines on the board (and only that)
+  - The program must print the board with some "." replaced by "x" to represent the solution found.
 
 
 ### Mark
