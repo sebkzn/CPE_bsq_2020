@@ -11,24 +11,20 @@ CC        = gcc -g
 
 RM        = rm -f
 
-SRCS      = $(wildcard ./*.c) $(wildcard ./src/*.c) $(wildcard ./src/*/*.c)
-
-T_SRCS    = $(wildcard ./tests/*.c)
+SRCS      = $(wildcard ./*.c) $(wildcard ./src/*.c) $(wildcard ./src/**/*.c)
 
 OBJS      = $(SRCS:.c=.o)
 
-T_OBJS    = $(T_SRCS:.c=.o)
-
 CFLAGS 	  += -I ./include -Wall -Wextra
 
-LDFLAGS   += -L ./lib/my -lmy
-T_LDFLAGS += -lcriterion $(LDFLAGS)
+LDFLAGS   = -L ./lib/my
+LDLIBS    = -lmy
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	 $(MAKE) -C ./lib/my
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 $(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LDFLAGS) $(LDLIBS)
 
 clean:
 	$(RM) $(OBJS)
@@ -42,10 +38,6 @@ fclean: clean
 
 re: fclean all
 
-unit_tests: re $(T_OBJS)
-	$(CC) $(OBJS) $(T_OBJS) -o unit_tests --coverage $(T_LDFLAGS)
-
-run_tests: all
-	./unit_tests
-
 .PHONY: all clean fclean re unit_tests run_tests
+
+
